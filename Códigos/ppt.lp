@@ -3,8 +3,24 @@ horaDeComecoDaTarefa(Tarefa, Comeco):- tarefa(Tarefa, _, _, _, _), Comeco = #min
 horaDeFimDaTarefa(Tarefa, Fim) :- tarefa(Tarefa, _, _, _, _), Fim = #max {Horas + Tempo : tarefa(Tarefa, Viagem, _, _, _), tabela(_, Viagem, Horas), viagem(Viagem, _, Tempo)}.
 
 
+%Restrição: Duas viagens só estão na mesma tarefa se os horários não chocarem e sejam da mesma tabela.
+:- tarefa(Tarefa, Viagem1, Dia, Semana, Tabela1), tarefa(Tarefa, Viagem2, Dia, Semana, Tabela2), tabela(Tabela, Viagem1, Hora1), tabela(Tabela, Viagem2, Hora2), viagem(Viagem1, _, TempoDaViagem), Hora1 + TempoDaViagem >= Hora2, Viagem1 != Viagem2; Tabela1 != Tabela2.
+
+
+%Restrição: O intervalo entre as viagens de uma tarefa não pode ser maior que 15 minutos.
+:- tarefa(Tarefa, Viagem1, Dia, Semana, Tabela), tarefa(Tarefa, Viagem2, Dia, Semana, Tabela), viagem(Viagem1, _, Tempo1), viagem(Viagem2, _, Tempo2), tabela(Tabela, Viagem1, Inicio1), tabela(Tabela, Viagem2, Inicio2), Inicio1 + Tempo1 + 15 < Inicio2.
+
+
 %Restrição: Todo motorista tem que estar alocado em pelo menos uma tarefa.
 1 <= {alocacao(Motorista, Tarefa, Dia, Semana, Tabela) : tarefa(Tarefa, Viagem, Dia, Semana, Tabela)} :- motorista(Motorista).
+
+
+%Restrição: Toda tarefa tem que estar alocada para um motorista.
+1 {alocacao(Motorista, Tarefa, Dia, Semana, Tabela) : motorista(Motorista), dia(Dia), semana(Semana)} 1:- tarefa(Tarefa, Viagem, Dia, Semana, Tabela).
+
+
+%Restrição: Dois motoristas só podem pegar a mesma tarefa se forem em dias diferentes..
+:- alocacao(Motorista1, Tarefa1, Dia1, Semana1, Tabela), alocacao(Motorista2, Tarefa2, Dia2, Semana2, Tabela), Motorista1 != Motorista2, Tarefa1 == Tarefa2, Dia1 == Dia2, Semana1 == Semana2.
 
 
 %Restrição 3.2: Só pode ter um motorista alocado para cada tarefa
@@ -70,6 +86,7 @@ trabalhouAMenos(Motorista,Semana, Menos) :- HorasSemanais = #sum{Horas: alocacao
 %Restrição 3.14: Impõe um limite máximo de horas extras que o motorista pode fazer, mas isso eu acho que dá pra fazer nas restrições acima.
 :- motorista(Motorista), semana(Semana), trabalhouAMais(Motorista, Semana, Mais), Mais > 10.
 
+:- motorista(Motorista), semana(Semana), trabalhouAMenos(Motorista, Semana, Menos), Menos > 1200.
 
 
 %Restrição 3.15: Referente às leis trabalhistas, garante que o motorista deve ter um dia de descanso, pois há uma quantidade máxima de dias sem folga (que, mais uma vez, será escolhido um valor arbitrário, coloquei o valor como um dia só).
