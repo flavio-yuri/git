@@ -16,7 +16,12 @@ horaDeFimDaTarefa(Tarefa, Fim) :- tarefa(Tarefa, _, _, _, _), Fim = #max {Horas 
 
 
 %Restrição: Toda tarefa tem que estar alocada para um motorista.
-1 {alocacao(Motorista, Tarefa, Dia, Semana, Tabela) : motorista(Motorista), dia(Dia), semana(Semana)} 1:- tarefa(Tarefa, Viagem, Dia, Semana, Tabela).
+%1 == #sum{Motorista: alocacao(Motorista, Tarefa, Dia, Semana, Tabela) : motorista(Motorista), dia(Dia), semana(Semana)} == 1:- tarefa(Tarefa, Viagem, Dia, Semana, Tabela).
+
+
+:-1 < #count{Motorista: alocacao(Motorista, Tarefa, Dia, Semana, Tabela), motorista(Motorista)} , tarefa(Tarefa, Viagem, Dia, Semana, Tabela): dia(Dia), semana(Semana).
+
+
 
 
 %Restrição: Dois motoristas só podem pegar a mesma tarefa se forem em dias diferentes..
