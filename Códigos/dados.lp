@@ -4,7 +4,7 @@ motorista(besouro).
 motorista(geraldo).
 motorista(raimundo).
 motorista(poupanca).
-motorista(larissa).
+%motorista(larissa).
 
 
 %coloco um identificador na viagem?
@@ -66,13 +66,13 @@ tabela(tabela1, viagem1, 360).
 tabela(tabela1, viagem2, 450).
 tabela(tabela1, viagem3, 375).
 tabela(tabela1, viagem4, 485).
-%tabela(tabela1, viagem5, 520).
-%tabela(tabela1, viagem6, 540).
-%tabela(tabela1, viagem7, 600).
+tabela(tabela1, viagem5, 520).
+tabela(tabela1, viagem6, 540).
+tabela(tabela1, viagem7, 600).
 tabela(tabela2, viagem1, 390).
 tabela(tabela2, viagem2, 480).
 tabela(tabela2, viagem3, 405).
 tabela(tabela2, viagem4, 515).
-%tabela(tabela2, viagem5, 550).
-%tabela(tabela2, viagem6, 590).
-%tabela(tabela2, viagem7, 630).
+tabela(tabela2, viagem5, 550).
+tabela(tabela2, viagem6, 590).
+tabela(tabela2, viagem7, 630).

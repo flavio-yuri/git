@@ -3,8 +3,11 @@ horaDeComecoDaTarefa(Tarefa, Comeco):- tarefa(Tarefa, _, _, _, _), Comeco = #min
 horaDeFimDaTarefa(Tarefa, Fim) :- tarefa(Tarefa, _, _, _, _), Fim = #max {Horas + Tempo : tarefa(Tarefa, Viagem, _, _, _), tabela(_, Viagem, Horas), viagem(Viagem, _, Tempo)}.
 
 
-%Restrição: Duas viagens só estão na mesma tarefa se os horários não chocarem e sejam da mesma tabela.
-:- tarefa(Tarefa, Viagem1, Dia, Semana, Tabela1), tarefa(Tarefa, Viagem2, Dia, Semana, Tabela2), tabela(Tabela, Viagem1, Hora1), tabela(Tabela, Viagem2, Hora2), viagem(Viagem1, _, TempoDaViagem), Hora1 + TempoDaViagem >= Hora2, Viagem1 != Viagem2; Tabela1 != Tabela2.
+%Restrição: Duas viagens só estão na mesma tarefa se os horários não chocarem.
+
+horaQueAViagemTermina(Viagem, N, Tabela) :- viagem(Viagem, _, Tempo), tabela(Tabela, Viagem, Hora), N = Tempo + Hora.
+
+%:- tarefa(Tarefa, Viagem1, Dia, Semana, Tabela1), tarefa(Tarefa, Viagem2, Dia, Semana, Tabela2), tabela(Tabela, Viagem1, Hora1), tabela(Tabela, Viagem2, Hora2), viagem(Viagem1, _, TempoDaViagem), Hora1 + TempoDaViagem = N, N >= Hora2, Viagem1 != Viagem2.
 
 
 %Restrição: O intervalo entre as viagens de uma tarefa não pode ser maior que 15 minutos.
@@ -19,8 +22,7 @@ horaDeFimDaTarefa(Tarefa, Fim) :- tarefa(Tarefa, _, _, _, _), Fim = #max {Horas 
 %1 == #sum{Motorista: alocacao(Motorista, Tarefa, Dia, Semana, Tabela) : motorista(Motorista), dia(Dia), semana(Semana)} == 1:- tarefa(Tarefa, Viagem, Dia, Semana, Tabela).
 
 
-:-1 < #count{Motorista: alocacao(Motorista, Tarefa, Dia, Semana, Tabela), motorista(Motorista)} , tarefa(Tarefa, Viagem, Dia, Semana, Tabela): dia(Dia), semana(Semana).
-
+1 <= #count{Motorista: alocacao(Motorista, Tarefa, Dia, Semana, Tabela) : motorista(Motorista)} :- tarefa(Tarefa, Viagem, Dia, Semana, Tabela), dia(Dia), semana(Semana).
 
 
 
@@ -74,7 +76,7 @@ primeiraTarefaDoDia(Tarefa1, Motorista, Dia, Semana) :- alocacao(Motorista, Tare
 
 
 %Restrição 3.10 e 3.11: O motorista tem que trabalhar um minimo e máximo de horas (depende de cada empresa, por isso vou usar um número arbitrário).
-:- alocacao(Motorista, Tarefa1, Dia, Semana, _), alocacao(Motorista, Tarefa2, Dia, Semana, _), primeiraTarefaDoDia(Tarefa1, Motorista, Dia, Semana), ultimaTarefaDoDia(Tarefa2, Motorista, Dia, Semana), horaDeComecoDaTarefa(Tarefa1, Comeco), horaDeFimDaTarefa(Tarefa2, Fim), 600 < Fim-Comeco; Fim-Comeco < 240.
+:- alocacao(Motorista, Tarefa1, Dia1, Semana1, _), alocacao(Motorista, Tarefa2, Dia2, Semana2, _), primeiraTarefaDoDia(Tarefa1, Motorista, Dia1, Semana1), ultimaTarefaDoDia(Tarefa2, Motorista, Dia2, Semana2), horaDeComecoDaTarefa(Tarefa1, Comeco), horaDeFimDaTarefa(Tarefa2, Fim), Dia1 == Dia2, Semana1 == Semana2, N = Fim-Comeco, 600 < N; N < 240.
 
 
 %Restrição 3.12: Saber se o motorista trabalhou mais ou menos do que necessário(semanal). É realmente necessária?
@@ -125,4 +127,7 @@ qtdMotoristas(Qtd) :- tamanhoDeTodasAsTarefas(N), Qtd = N/40.
 %m {escalado(Motorista, Dia, Semana) : motorista(Motorista)} m :- tarefa(Tarefa, _, Dia, _, Semana, _).
 
 
-#show alocacao/5.
+%#show alocacao/5.
+#show horaQueAViagemTermina/3.
+#show horaDeComecoDaTarefa/2.
+#show horaDeFimDaTarefa/2.
