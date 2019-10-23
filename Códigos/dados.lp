@@ -4,19 +4,39 @@ motorista(besouro).
 motorista(geraldo).
 motorista(raimundo).
 motorista(poupanca).
-%motorista(larissa).
+motorista(larissa).
+motorista(adriana).
+motorista(fransisco).
+motorista(carlos).
+motorista(cleiton).
+motorista(leonardo).
+motorista(juliana).
+motorista(ronildo).
+motorista(alex).
+motorista(vinicius).
+motorista(segundo).
+motorista(savio).
+motorista(pedro).
+motorista(joao).
+motorista(paulo).
+motorista(viviane).
+motorista(wladimir).
+motorista(filho).
+motorista(leonara).
+
+
 
 
 %coloco um identificador na viagem?
 %O tempo de viagem vai ficar assim, como 1 hora é 60 minutos, meia-noite será 0, 1 da mdarugada será 60, 2 da madruga será 120 e por aí vai
 %viagem(identificador, linha, tempo).
-viagem(viagem1, linha1, 60).
-viagem(viagem2, linha2, 60).
-viagem(viagem3, linha1, 60).
-viagem(viagem4, linha2, 60).
-viagem(viagem5, linha3, 60).
-%viagem(viagem6, linha4, 60).
-%viagem(viagem7, linha5, 60).
+viagem(1, linha1, 60).
+viagem(2, linha2, 60).
+viagem(3, linha1, 60).
+viagem(4, linha2, 60).
+viagem(5, linha3, 60).
+%viagem(6, linha4, 60).
+%viagem(7, linha5, 60).
 
 %Uma linha possui varias tabelas
 % linha(identificador, tabela).
@@ -62,17 +82,17 @@ linha(linha5, cipoAnjos, lagoa).
 
 %tabelas de horários contêm viagens.
 % tabela(identificador, viagem, inicioDaViagem).
-tabela(tabela1, viagem1, 360).
-tabela(tabela1, viagem2, 450).
-tabela(tabela1, viagem3, 375).
-tabela(tabela1, viagem4, 485).
-tabela(tabela1, viagem5, 520).
-tabela(tabela1, viagem6, 540).
-tabela(tabela1, viagem7, 600).
-tabela(tabela2, viagem1, 390).
-tabela(tabela2, viagem2, 480).
-tabela(tabela2, viagem3, 405).
-tabela(tabela2, viagem4, 515).
-tabela(tabela2, viagem5, 550).
-tabela(tabela2, viagem6, 590).
-tabela(tabela2, viagem7, 630).
+tabela(1, 1, 360).
+tabela(1, 2, 450).
+tabela(1, 3, 375).
+tabela(1, 4, 485).
+tabela(1, 5, 520).
+tabela(1, 6, 540).
+tabela(1, 7, 600).
+tabela(2, 1, 390).
+tabela(2, 2, 480).
+tabela(2, 3, 405).
+tabela(2, 4, 515).
+tabela(2, 5, 550).
+tabela(2, 6, 590).
+tabela(2, 7, 630).

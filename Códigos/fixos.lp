@@ -16,11 +16,11 @@ semana(4).
 % tarefa(identificador, viagem, dia, hora, semana, tabela).
 %Mas como saber o número de viagens de cada tarefa?
 % Os números grandes são pra representar hora e minuto, por exemplo, 6:15 é 615.
-tarefa(1, viagem1, Dia, Semana, tabela1) : dia(Dia), semana(Semana).
-tarefa(1, viagem4, Dia, Semana, tabela1) : dia(Dia), semana(Semana).
-tarefa(1, viagem5, Dia, Semana, tabela1) : dia(Dia), semana(Semana).
-tarefa(2, viagem2, Dia, Semana, tabela2) : dia(Dia), semana(Semana).
-tarefa(2, viagem7, Dia, Semana, tabela2) : dia(Dia), semana(Semana).
-tarefa(2, viagem5, Dia, Semana, tabela2) : dia(Dia), semana(Semana).
-tarefa(3, viagem3, Dia, Semana, tabela1) : dia(Dia), semana(Semana).
-tarefa(3, viagem1, Dia, Semana, tabela1) : dia(Dia), semana(Semana).
+tarefa(1, viagem1, 1..7, 1..4, tabela1).
+tarefa(1, viagem4, 1..7, 1..4, tabela1).
+%tarefa(1, viagem5, 1..7, 1..4, tabela1).
+tarefa(2, viagem2, 1..7, 1..4, tabela2).
+tarefa(2, viagem7, 1..7, 1..4, tabela2).
+tarefa(2, viagem5, 1..7, 1..4, tabela2).
+tarefa(3, viagem1, 1..7, 1..4, tabela1).
+tarefa(3, viagem4, 1..7, 1..4, tabela1).
