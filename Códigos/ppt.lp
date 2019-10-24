@@ -11,7 +11,7 @@ horaQueAViagemTermina(Viagem, N, Tabela) :- viagem(Viagem, _, Tempo), tabela(Tab
 
 
 %Restrição: O intervalo entre as viagens de uma tarefa não pode ser maior que 15 minutos.
-:- tarefa(Tarefa, Viagem1, Dia, Semana, Tabela), tarefa(Tarefa, Viagem2, Dia, Semana, Tabela), horaQueAViagemTermina(Viagem1, N, Tabela), tabela(Tabela, Viagem2, Inicio2), N + 15 < Inicio2.
+%:- tarefa(Tarefa, Viagem1, Dia, Semana, Tabela), tarefa(Tarefa, Viagem2, Dia, Semana, Tabela), horaQueAViagemTermina(Viagem1, N, Tabela), tabela(Tabela, Viagem2, Inicio2), N + 15 < Inicio2.
 
 
 %Restrição: Todo motorista tem que estar alocado em pelo menos uma tarefa.
@@ -108,11 +108,11 @@ trabalhouAMenos(Motorista,Semana, Menos) :- HorasSemanais = #sum{Horas: alocacao
 
 %Restrição 3.19: Perguntar ao Paulo, pq o jeito que eu pensei usa as mesmas coisas das que eu não fiz acima.
 % Soma o tamanho das tarefas.
-tamanhoDeTodasAsTarefas(N):- N = #sum{Tamanho: tarefa(Tarefa, _, Dia, Semana, _), dia(Dia), semana(Semana), horaDeFimDaTarefa(Tarefa, Fim), horaDeComecoDaTarefa(Tarefa, Comeco), Tamanho = Fim - Comeco}.
+tamanhoDeTodasAsTarefas(N):-semana(Semana), N = #sum{Tamanho: tarefa(Tarefa, _, _, Semana, _), semana(Semana), horaDeFimDaTarefa(Tarefa, Fim), horaDeComecoDaTarefa(Tarefa, Comeco), Tamanho = Fim - Comeco}.
 
 %A quantidade de Motoristas é o tamanho de todas as tarefas dividido pela quantidade de horas semanais(sem horas extras). No modelo se acrescenta uma variável g, que serve pra cobrir os dias de folga, aí eu não entendi o que é realmente essa variável, já que ela só aparece aí.
 qtdMotoristas(Qtd) :- tamanhoDeTodasAsTarefas(N), Qtd = N/40.
-%:- qtdMotoristas(Qtd), Qtd < #count {Motorista: alocacao(Motorista, _, _, Semana, _), motorista(Motorista), semana(Semana)}.
+%:- qtdMotoristas(Qtd), Qtd < N, N = #count {Motorista: escalado(Motorista, _, Semana), motorista(Motorista), semana(Semana)}.
 
 %Restrição 3.21: Indica a quantidade de horas não aproveitadas pelo motorista, perguntar ao Paulo, pois a ideia é a mesma da 3.13.
 %Acho que já fiz.
