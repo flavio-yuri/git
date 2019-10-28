@@ -72,7 +72,7 @@ linha(linha5, cipoAnjos, lagoa).
 % tabela(identificador, viagem, inicioDaViagem).
 tabela(1, 1, 360).
 tabela(1, 2, 450).
-tabela(1, 3, 375).
+tabela(1, 3, 400).
 tabela(1, 4, 475).
 tabela(1, 5, 510).
 tabela(1, 6, 540).
@@ -83,15 +83,17 @@ tabela(2, 3, 405).
 tabela(2, 4, 515).
 tabela(2, 5, 550).
 tabela(2, 6, 590).
-tabela(2, 7, 630).
+tabela(2, 7, 620).
+tabela(2, 8, 685).
 
 %coloco um identificador na viagem?
 %O tempo de viagem vai ficar assim, como 1 hora é 60 minutos, meia-noite será 0, 1 da mdarugada será 60, 2 da madruga será 120 e por aí vai
 %viagem(identificador, linha, tempo).
-viagem(1, linha1, 100).
+viagem(1, linha1, 60).
 viagem(2, linha2, 60).
-viagem(3, linha1, 60).
+viagem(3, linha1, 65).
 viagem(4, linha2, 60).
 viagem(5, linha3, 60).
 viagem(6, linha4, 60).
 viagem(7, linha5, 60).
+viagem(8, linha1, 60).
