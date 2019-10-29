@@ -10,8 +10,8 @@ horaQueAViagemTermina(Viagem, N, Tabela) :- viagem(Viagem, _, Tempo), tabela(Tab
 :- tarefa(Tarefa, Viagem1, Dia, Semana, Tabela), tarefa(Tarefa, Viagem2, Dia, Semana, Tabela), tabela(Tabela, Viagem2, Hora2), horaQueAViagemTermina(Viagem1, N, Tabela), Viagem1 < Viagem2, N > Hora2.
 
 
-%Restrição nova: A próxima viagem.
-proximaViagem(Tarefa, Viagem1, Viagem2):- tarefa(Tarefa, Viagem1, Dia, Semana, Tabela), tarefa(Tarefa, Viagem2, Dia, Semana, Tabela), tarefa(Tarefa, Viagem3, Dia, Semana, Tabela), Viagem1 < Viagem2, Viagem2 < Viagem3.
+%Restrição nova: A próxima viagem da tarefa.
+proximaViagem(Tarefa, Viagem1, N) :- tarefa(Tarefa, Viagem1, Dia, Semana, Tabela), N = #min {Viagem2: tarefa(Tarefa, Viagem2, Dia, Semana, Tabela), Viagem2 > Viagem1}.
 
 
 %Restrição: O intervalo entre as viagens de uma tarefa não pode ser maior que 15 minutos.
@@ -107,7 +107,7 @@ trabalhouAMenos(Motorista,Semana, Menos) :- HorasSemanais = #sum{Horas: alocacao
 :- alocacao(Motorista, _, 4..7, Semana1, _), alocacao(Motorista, _, 1, Semana2, _), alocacao(Motorista, _, 2, Semana2, _), Semana2 - Semana1 == 1.
 :- alocacao(Motorista, _, 5..7, Semana1, _), alocacao(Motorista, _, 1..2, Semana2, _), alocacao(Motorista, _, 3, Semana2, _), Semana2 - Semana1 == 1.
 :- alocacao(Motorista, _, 6..7, Semana1, _), alocacao(Motorista, _, 1..3, Semana2, _), alocacao(Motorista, _, 4, Semana2, _), Semana2 - Semana1 == 1.
-:- alocacao(Motorista, _, 7, Semana1, _), alocacao(Motorista, _, 1..4, Semana2, _), alocacao(Motorista, _, 5, Semana2, _), Semana2 - Semana1 == 1.
+%:- alocacao(Motorista, _, 7, Semana1, _), alocacao(Motorista, _, 1..4, Semana2, _), alocacao(Motorista, _, 5, Semana2, _), Semana2 - Semana1 == 1.
 
 
 %Eu acho que essas últimas restrições já correspondem a restrição 3.16, que pelo o que eu entendi faz a "virada da semana".
@@ -138,7 +138,7 @@ qtdMotoristas(Qtd) :- tamanhoDeTodasAsTarefas(N), Qtd = (N)/(44 * 60).
 #show alocacao/5.
 %#show horaDeFimDaTarefa/2.
 %#show horaDeComecoDaTarefa/2.
-#show tamanhoDeTodasAsTarefas/1.
-#show qtdMotoristas/1.
+%#show tamanhoDeTodasAsTarefas/1.
+%#show qtdMotoristas/1.
 %#show horaQueAViagemTermina/3.
 %#show proximaViagem/3.

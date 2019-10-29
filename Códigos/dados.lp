@@ -86,7 +86,7 @@ tabela(2, 6, 590).
 tabela(2, 7, 620).
 tabela(2, 8, 685).
 
-%coloco um identificador na viagem?
+
 %O tempo de viagem vai ficar assim, como 1 hora é 60 minutos, meia-noite será 0, 1 da mdarugada será 60, 2 da madruga será 120 e por aí vai
 %viagem(identificador, linha, tempo).
 viagem(1, linha1, 60).
