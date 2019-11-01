@@ -8,19 +8,15 @@ dia(7). %Sábado
 
 semana(1).
 semana(2).
-semana(3).
-semana(4).
+%semana(3).
+%semana(4).
 
 %O jeito que eu pensei seri
 % tarefa(identificador, viagem, dia, semana, tabela).
 tarefa(1, 3, 1..7, 1..4, 1).
 tarefa(1, 4, 1..7, 1..4, 1).
-%tarefa(1, 5, 1..7, 1..4, 1).
 tarefa(2, 2, 1..7, 1..4, 2).
-tarefa(2, 5, 1..7, 1..4, 2).
-tarefa(2, 7, 1..7, 1..4, 2).
-tarefa(2, 8, 1..7, 1..4, 2).
 tarefa(3, 1, 1..7, 1..4, 1).
 tarefa(3, 2, 1..7, 1..4, 1).
-%tarefa(4, 7, 1..7, 1..4, 1).
-%tarefa(4, 8, 1..7, 1..4, 1).
+tarefa(4, 5, 1..7, 1..4, 1).
+tarefa(5, 9, 1..7, 1..4, 2).

@@ -3,27 +3,6 @@ motorista(claudia).
 motorista(besouro).
 motorista(geraldo).
 motorista(raimundo).
-motorista(poupanca).
-motorista(larissa).
-motorista(adriana).
-motorista(fransisco).
-motorista(carlos).
-motorista(cleiton).
-motorista(leonardo).
-motorista(juliana).
-motorista(ronildo).
-motorista(alex).
-%motorista(vinicius).
-%motorista(segundo).
-%motorista(savio).
-%motorista(pedro).
-%motorista(joao).
-%motorista(paulo).
-%motorista(viviane).
-%motorista(wladimir).
-%motorista(filho).
-%motorista(leonara).
-
 
 
 
@@ -74,17 +53,11 @@ tabela(1, 1, 360).
 tabela(1, 2, 430).
 tabela(1, 3, 400).
 tabela(1, 4, 475).
-tabela(1, 5, 510).
-tabela(1, 6, 540).
-tabela(1, 7, 600).
+tabela(1, 5, 540).
 tabela(2, 1, 390).
 tabela(2, 2, 480).
 tabela(2, 3, 405).
-tabela(2, 4, 515).
-tabela(2, 5, 550).
-tabela(2, 6, 590).
-tabela(2, 7, 620).
-tabela(2, 8, 685).
+tabela(2, 9, 1140).
 
 
 %O tempo de viagem vai ficar assim, como 1 hora é 60 minutos, meia-noite será 0, 1 da mdarugada será 60, 2 da madruga será 120 e por aí vai
@@ -94,6 +67,4 @@ viagem(2, linha2, 60).
 viagem(3, linha1, 65).
 viagem(4, linha2, 60).
 viagem(5, linha3, 60).
-viagem(6, linha4, 60).
-viagem(7, linha5, 60).
-viagem(8, linha1, 60).
+viagem(9, linha3, 120).
