@@ -53,13 +53,17 @@ proximaViagem(Tarefa, Viagem1, N) :- tarefa(Tarefa, Viagem1, Dia, Semana, Tabela
 
 
 
-%Restrição 3.2.1: O motorista só pode ser alocado em uma tabela.
+%Restrição 3.2.2: O motorista só pode ser alocado em uma tabela.
 :- alocacao(Motorista, _, Dia, Semana, Tabela1), alocacao(Motorista, _, Dia, Semana, Tabela2), Tabela2 != Tabela1.
 
 
 %alocacao(antonio,3,1,1,1).
 %alocacao(antonio,2,1,1,2).
 
+
+
+
+%O motorista pode pegar duas tarefas no mesmo dia, nas respostas que tem dado aparecem apenas um motorista pega uma tarefa por dia, talvez seja por que tem menos tarefas do que motoristas, se não for, eu tô lascadom pq eu sei dizer o que não pode fazer, mas o que pode eu não sei.
 
 
 
