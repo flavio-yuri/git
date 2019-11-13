@@ -22,16 +22,16 @@ proximaViagem(Tarefa, Viagem1, N) :- tarefa(Tarefa, Viagem1, Dia, Semana, Tabela
 1 <= {alocacao(Motorista, Tarefa, Dia, Semana, Tabela) : tarefa(Tarefa, Viagem, Dia, Semana, Tabela)} :- motorista(Motorista).
 
 
+%alocacao(antonio,3,1,1,1).
+%alocacao(antonio,1,1,1,1).
+
 %Restrição: Toda tarefa tem que estar alocada para um motorista.
 1 <= #count{Motorista: alocacao(Motorista, Tarefa, Dia, Semana, Tabela) : motorista(Motorista)} :- tarefa(Tarefa, Viagem, Dia, Semana, Tabela), dia(Dia), semana(Semana).
 
-
-%alocacao(antonio,1,1,1,1).
-%alocacao(antonio,3,1,1,1).
-
-
 %Restrição: Dois motoristas só podem pegar a mesma tarefa se forem em dias diferentes..
 :- alocacao(Motorista1, Tarefa, Dia, Semana, Tabela), alocacao(Motorista2, Tarefa, Dia, Semana, Tabela), Motorista1 != Motorista2.
+
+
 
 
 %alocacao(claudia,1,1,1,1).
@@ -47,14 +47,14 @@ proximaViagem(Tarefa, Viagem1, N) :- tarefa(Tarefa, Viagem1, Dia, Semana, Tabela
 
 
 %Restrição 3.2.1: O mesmo motorista só pode pegar mais de uma tarefa no mesmo dia se os horários não chocarem
-%:- alocacao(Motorista, Tarefa1, Dia, Semana, Tabela), alocacao(Motorista, Tarefa2, Dia, Semana, Tabela), horaDeFimDaTarefa(Tarefa1, Fim), horaDeComecoDaTarefa(Tarefa2, Comeco), Tarefa1 != Tarefa2, Comeco <= Fim.
+:- alocacao(Motorista, Tarefa1, Dia, Semana, Tabela), alocacao(Motorista, Tarefa2, Dia, Semana, Tabela), horaDeFimDaTarefa(Tarefa1, Fim), horaDeComecoDaTarefa(Tarefa2, Comeco), Tarefa1 != Tarefa2, Comeco <= Fim.
 
 
 
 
 
 %Restrição 3.2.2: O motorista só pode ser alocado em uma tabela.
-:- alocacao(Motorista, _, Dia, Semana, Tabela1), alocacao(Motorista, _, Dia, Semana, Tabela2), Tabela2 != Tabela1.
+%:- alocacao(Motorista, _, Dia, Semana, Tabela1), alocacao(Motorista, _, Dia, Semana, Tabela2), Tabela2 != Tabela1.
 
 
 %alocacao(antonio,3,1,1,1).
@@ -126,7 +126,7 @@ primeiraTarefaDoDia(Motorista, Tarefa1, Dia, Semana) :- motorista(Motorista), di
 :- ultimaTarefaDoDia(Motorista, Tarefa1, Dia1, Semana), primeiraTarefaDoDia(Motorista, Tarefa2, Dia2, Semana), tarefa(Tarefa1, _, Dia1, Semana, _), tarefa(Tarefa2, _, Dia2, Semana, _), horaDeFimDaTarefa(Tarefa1, Fim), horaDeComecoDaTarefa(Tarefa2, Comeco), Dia2 - Dia1 == 1, N = Fim + 480, M = Comeco + 1440, N > M.
 
 
-:- ultimaTarefaDoDia(Motorista, Tarefa1, Dia1, Semana), primeiraTarefaDoDia(Motorista, Tarefa2, Dia2, Semana), tarefa(Tarefa1, _, Dia1, Semana, _), tarefa(Tarefa2, _, Dia2, Semana, _), horaDeFimDaTarefa(Tarefa1, Fim), horaDeComecoDaTarefa(Tarefa2, Comeco), Dia2 == 1, Dia1 == 7, N = Fim + 480, M = Comeco + 1440, N > M.
+:- ultimaTarefaDoDia(Motorista, Tarefa1, Dia1, Semana1), primeiraTarefaDoDia(Motorista, Tarefa2, Dia2, Semana2), tarefa(Tarefa1, _, Dia1, Semana1, _), tarefa(Tarefa2, _, Dia2, Semana2, _), horaDeFimDaTarefa(Tarefa1, Fim), horaDeComecoDaTarefa(Tarefa2, Comeco), Dia2 == 1, Dia1 == 7, Semana2 - Semana1 = 1, N = Fim + 480, M = Comeco + 1440, N > M.
 
 
 %alocacao(claudia, 5, 1, 1, 2).
@@ -140,7 +140,7 @@ tantoQueMotoristaTrabalhouNoDia(Motorista, Dia, Semana, N) :- alocacao(Motorista
 
 :- tantoQueMotoristaTrabalhouNoDia(Motorista, Dia, Semana, N), N > 600.
 %:- tantoQueMotoristaTrabalhouNoDia(Motorista, Dia, Semana, N), N < 240.
-
+%Essa dá errado, mas eu acho que é pq tem poucas tarefas.
 
 %alocacao(antonio, 1, 1, 1, 1).
 %alocacao(antonio, 3, 1, 1, 1).
