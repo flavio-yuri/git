@@ -41,7 +41,7 @@ proximaViagem(Tarefa, Viagem1, N) :- tarefa(Tarefa, Viagem1, Dia, Semana, Tabela
 %Percebi aqui que são a mesma coisa essas duas restrições
 
 %Restrição 3.2: Só pode ter um motorista alocado para cada tarefa
-:- alocacao(Motorista1, Tarefa, Dia, Semana, Tabela), alocacao(Motorista2, Tarefa, Dia, Semana, Tabela), Motorista1 != Motorista2.
+%:- alocacao(Motorista1, Tarefa, Dia, Semana, Tabela), alocacao(Motorista2, Tarefa, Dia, Semana, Tabela), Motorista1 != Motorista2.
 
 
 
@@ -85,7 +85,7 @@ escalado(Motorista, Dia, Semana):- trabalhou(Motorista, Dia, Semana).
 ultimaTarefaDoDia(Motorista, Tarefa1, Dia, Semana, Tabela) :- motorista(Motorista), dia(Dia), semana(Semana), N = #max{Comeco, Tarefa: alocacao(Motorista, Tarefa, Dia, Semana, Tabela), horaDeComecoDaTarefa(Tarefa, Comeco), tabela(Tabela, _, _)}, alocacao(Motorista, Tarefa1, Dia, Semana, Tabela), horaDeComecoDaTarefa(Tarefa1, N). 
 
 
-ultimaDaTabela(Motorista, N, Dia, Semana, Tabela) :- ultimaTarefaDoDia(Motorista, N, Dia, Semana, Tabela), N = #max{Tarefa, Tabela: tarefa(Tarefa, _, Dia, Semana, Tabela), tabela(Tabela, _, _)}.
+ultimaDaTabela(Motorista, N, Dia, Semana, Tabela) :- tabela(Tabela, _, _), ultimaTarefaDoDia(Motorista, N, Dia, Semana, Tabela), N = #max{Tarefa: tarefa(Tarefa, _, Dia, Semana, Tabela)}.
 
 
 %Fazer restrição: O motorista só pode ser alocado em duas tarefas diferentes se os horários não chocarem
@@ -124,7 +124,7 @@ primeiraTarefaDoDia(Motorista, Tarefa1, Dia, Semana, Tabela) :- motorista(Motori
 
 %Restrição 3.9: O motorista tem que ter um descanso mínimo entre duas tarefas em dias diferentes.
 %Coloquei como 8 horas, mas não sei se a tarefa tem que começar depois de 8 horas ou se com 8 horas depois já pode começar.
-%:- ultimaTarefaDoDia(Motorista, Tarefa1, Dia1, Semana), primeiraTarefaDoDia(Motorista, Tarefa2, Dia2, Semana), tarefa(Tarefa1, _, Dia1, Semana, _), tarefa(Tarefa2, _, Dia2, Semana, _), horaDeFimDaTarefa(Tarefa1, Fim), horaDeComecoDaTarefa(Tarefa2, Comeco), Dia2 - Dia1 == 1, N = Fim + 480, M = Comeco + 1440, N > M.
+%:- ultimaTarefaDoDia(Motorista, Tarefa1, Dia1, Semana), primeiraTarefaDoDia(Motorista, Tarefa2, Dia2, Semana), tarefa(Tarefa1, _, Dia1, Semana, _), tarefa(Tarefa2, _, Dia2, Semana, _), horaDeFimDaTarefa(Tarefa1, Fim), horaDeComecoDaTarefa(Tarefa2, Comeco), Dia2 - Dia1 == 1, N = Fim + 660, M = Comeco + 1440, N > M.
 
 
 :- ultimaTarefaDoDia(Motorista, Tarefa1, Dia1, Semana1, _), primeiraTarefaDoDia(Motorista, Tarefa2, Dia2, Semana2, _), tarefa(Tarefa1, _, Dia1, Semana1, _), tarefa(Tarefa2, _, Dia2, Semana2, _), horaDeFimDaTarefa(Tarefa1, Fim), horaDeComecoDaTarefa(Tarefa2, Comeco), Dia2 == 1, Dia1 == 7, Semana2 - Semana1 = 1, N = Fim + 480, M = Comeco + 1440, N > M.
@@ -142,8 +142,8 @@ tantoQueMotoristaTrabalhouNoDia(Motorista, Dia, Semana, N) :- alocacao(Motorista
 %COLOCAR MAIS MOTORISTAS
 
 
+:- tantoQueMotoristaTrabalhouNoDia(Motorista, Dia, Semana, N), N < 240.
 %:- tantoQueMotoristaTrabalhouNoDia(Motorista, Dia, Semana, N), N > 600.
-%:- tantoQueMotoristaTrabalhouNoDia(Motorista, Dia, Semana, N), N < 240.
 %Essa dá errado, mas eu acho que é pq tem poucas tarefas.
 
 %alocacao(antonio, 1, 1, 1, 1).
@@ -168,10 +168,10 @@ trabalhouAMais(Motorista, Semana, Mais) :- motorista(Motorista), semana(Semana),
 %trabalhouAMenos(Motorista,Semana, Menos) :- HorasSemanais = #sum{Horas: alocacao(Motorista, Tarefa1, Dia, Semana, _), alocacao(Motorista, Tarefa2, Dia, Semana, _), primeiraTarefaDoDia(Motorista, Tarefa1, Dia, Semana), ultimaTarefaDoDia(Motorista, Tarefa2, Dia, Semana), horaDeComecoDaTarefa(Tarefa1, Comeco), horaDeFimDaTarefa(Tarefa2, Fim), Horas = Fim - Comeco}, HorasSemanais < 40, Menos = 40 - HorasSemanais, motorista(Motorista), semana(Semana).
 
 
-trabalhouAMenos(Motorista, Semana, Menos) :- motorista(Motorista), semana(Semana), HorasSemanais = #sum{Horas: tantoQueMotoristaTrabalhouNoDia(Motorista, Dia, Semana, Horas), dia(Dia)}, HorasSemanais < 2400, Menos = 2400 - HorasSemanais.
+%trabalhouAMenos(Motorista, Semana, Menos) :- motorista(Motorista), semana(Semana), HorasSemanais = #sum{Horas: tantoQueMotoristaTrabalhouNoDia(Motorista, Dia, Semana, Horas), dia(Dia)}, HorasSemanais < 2400, Menos = 2400 - HorasSemanais.
 
 
-quantoDevePagar(Motorista, TrabalhouMaisQueOMinimo, Semana) :- motorista(Motorista), semana(Semana), HorasSemanais = #sum{Horas: tantoQueMotoristaTrabalhouNoDia(Motorista, Dia, Semana, Horas), dia(Dia)}, HorasSemanais > 1200,  TrabalhouMaisQueOMinimo = HorasSemanais - 1200.
+%quantoDevePagar(Motorista, TrabalhouMaisQueOMinimo, Semana) :- motorista(Motorista), semana(Semana), HorasSemanais = #sum{Horas: tantoQueMotoristaTrabalhouNoDia(Motorista, Dia, Semana, Horas), dia(Dia)}, HorasSemanais > 1200,  TrabalhouMaisQueOMinimo = HorasSemanais - 1200.
 
 %Restrição 3.14: Impõe um limite máximo de horas extras que o motorista pode fazer, mas isso eu acho que dá pra fazer nas restrições acima.
 %:- motorista(Motorista), semana(Semana), trabalhouAMais(Motorista, Semana, Mais), Mais > 600.
@@ -182,14 +182,14 @@ quantoDevePagar(Motorista, TrabalhouMaisQueOMinimo, Semana) :- motorista(Motoris
 %Restrição 3.15: Referente às leis trabalhistas, garante que o motorista deve ter um dia de descanso, pois há uma quantidade máxima de dias sem folga (que, mais uma vez, será escolhido um valor arbitrário, coloquei o valor como um dia só).
 % Vou fazer na força bruta, depois eu tento fazer mais bonitinho.
 %{alocacao(Motorista, Tarefa, Dia, Semana, Tabela) : tarefa(Tarefa, Viagem, Dia, Semana, Tabela)} <= 5 :- motorista(Motorista), semana(Semana).
-%:- alocacao(Motorista, _, X..Y, Semana, _), alocacao(Motorista, _, Y+1, Semana, _), X = 1..2, Y = 2..6 , Y - X == 4.
+%:- alocacao(Motorista, _, X..Y, Semana, _), alocacao(Motorista, _, Y+1, Semana, _), X = 1..2, Y = 2..6 , Y - X == 5.
 
 %alocacao(antonio, 1, 1..6, 1, 1).
 
 
 
-%:- alocacao(Motorista, _, 3..7, Semana1, _), alocacao(Motorista, _, 1, Semana2, _), Semana2 - Semana1 == 1.
-%:- alocacao(Motorista, _, 4..7, Semana1, _), alocacao(Motorista, _, 1, Semana2, _), alocacao(Motorista, _, 2, Semana2, _), Semana2 - Semana1 == 1.
+%:- alocacao(Motorista, _, 3..7, Semana1, _), alocacao(Motorista, _, 1, Semana2, _), alocacao(Motorista, _, 2, Semana2, _), Semana2 - Semana1 == 1.
+%:- alocacao(Motorista, _, 4..7, Semana1, _), alocacao(Motorista, _, 1..2, Semana2, _), alocacao(Motorista, _, 3, Semana2, _), Semana2 - Semana1 == 1.
 %:- alocacao(Motorista, _, 5..7, Semana1, _), alocacao(Motorista, _, 1..2, Semana2, _), alocacao(Motorista, _, 3, Semana2, _), Semana2 - Semana1 == 1.
 %:- alocacao(Motorista, _, 6..7, Semana1, _), alocacao(Motorista, _, 1..3, Semana2, _), alocacao(Motorista, _, 4, Semana2, _), Semana2 - Semana1 == 1.
 %:- alocacao(Motorista, _, 7, Semana1, _), alocacao(Motorista, _, 1..4, Semana2, _), alocacao(Motorista, _, 5, Semana2, _), Semana2 - Semana1 == 1.
@@ -220,9 +220,9 @@ quantoDevePagar(Motorista, TrabalhouMaisQueOMinimo, Semana) :- motorista(Motoris
 %m {escalado(Motorista, Dia, Semana) : motorista(Motorista)} m :- tarefa(Tarefa, _, Dia, _, Semana, _).
 
 
-%#show alocacao/5.
-%#show tantoQueMotoristaTrabalhouNoDia/4.
-#show ultimaTarefaDoDia/5.
+#show alocacao/5.
+#show tantoQueMotoristaTrabalhouNoDia/4.
+%#show ultimaTarefaDoDia/5.
 %#show primeiraTarefaDoDia/4.
 %#show horaDeFimDaTarefa/2.
 %#show horaDeComecoDaTarefa/2.

@@ -23,6 +23,56 @@ motorista(motorista22).
 motorista(motorista23).
 motorista(motorista24).
 motorista(motorista25).
+motorista(motorista26).
+motorista(motorista27).
+motorista(motorista28).
+motorista(motorista29).
+motorista(motorista30).
+motorista(motorista31).
+motorista(motorista32).
+motorista(motorista33).
+motorista(motorista34).
+motorista(motorista35).
+motorista(motorista36).
+motorista(motorista37).
+motorista(motorista38).
+motorista(motorista39).
+motorista(motorista40).
+motorista(motorista41).
+motorista(motorista42).
+motorista(motorista43).
+motorista(motorista44).
+motorista(motorista45).
+motorista(motorista46).
+motorista(motorista47).
+motorista(motorista48).
+motorista(motorista49).
+motorista(motorista50).
+motorista(motorista51).
+motorista(motorista52).
+motorista(motorista53).
+motorista(motorista54).
+motorista(motorista55).
+motorista(motorista56).
+motorista(motorista57).
+motorista(motorista58).
+motorista(motorista59).
+motorista(motorista60).
+motorista(motorista61).
+motorista(motorista62).
+motorista(motorista63).
+motorista(motorista64).
+motorista(motorista65).
+motorista(motorista66).
+motorista(motorista67).
+motorista(motorista68).
+motorista(motorista69).
+motorista(motorista70).
+
+
+
+
+
 
 linha(linha1, vlPiaui, lapa).
 linha(linha2, vlMaria, correio).
@@ -302,128 +352,203 @@ tabela(2, 41, 1405).
 
 
 
-tarefa(1, 1, 1..7, 1..4, 1).
-tarefa(1, 5, 1..7, 1..4, 1).
-tarefa(1, 12, 1..7, 1..4, 1).
-tarefa(1, 18, 1..7, 1..4, 1).
+tarefa(1, 1, 1..7, 1..8, 1).
+tarefa(1, 5, 1..7, 1..8, 1).
+tarefa(1, 12, 1..7, 1..8, 1).
+tarefa(1, 18, 1..7, 1..8, 1).
 
 
-tarefa(2, 2, 1..7, 1..4, 1).
-tarefa(2, 7, 1..7, 1..4, 1).
-tarefa(2, 14, 1..7, 1..4, 1).
-tarefa(2, 20, 1..7, 1..4, 1).
+tarefa(2, 2, 1..7, 1..8, 1).
+tarefa(2, 7, 1..7, 1..8, 1).
+tarefa(2, 14, 1..7, 1..8, 1).
+tarefa(2, 20, 1..7, 1..8, 1).
 
 
-tarefa(3, 3, 1..7, 1..4, 1).
-tarefa(3, 9, 1..7, 1..4, 1).
-tarefa(3, 16, 1..7, 1..4, 1).
-tarefa(3, 22, 1..7, 1..4, 1).
+tarefa(3, 3, 1..7, 1..8, 1).
+tarefa(3, 9, 1..7, 1..8, 1).
+tarefa(3, 16, 1..7, 1..8, 1).
+tarefa(3, 22, 1..7, 1..8, 1).
 
 
-tarefa(4, 4, 1..7, 1..4, 1).
-tarefa(4, 11, 1..7, 1..4, 1).
-tarefa(4, 19, 1..7, 1..4, 1).
-tarefa(4, 25, 1..7, 1..4, 1).
+tarefa(4, 4, 1..7, 1..8, 1).
+tarefa(4, 11, 1..7, 1..8, 1).
+tarefa(4, 19, 1..7, 1..8, 1).
+tarefa(4, 25, 1..7, 1..8, 1).
 
 
-tarefa(5, 6, 1..7, 1..4, 1).
-tarefa(5, 13, 1..7, 1..4, 1).
+tarefa(5, 6, 1..7, 1..8, 1).
+tarefa(5, 13, 1..7, 1..8, 1).
 
 
-tarefa(6, 8, 1..7, 1..4, 1).
-tarefa(6, 15, 1..7, 1..4, 1).
-tarefa(6, 21, 1..7, 1..4, 1).
-tarefa(6, 26, 1..7, 1..4, 1).
+tarefa(6, 8, 1..7, 1..8, 1).
+tarefa(6, 15, 1..7, 1..8, 1).
+tarefa(6, 21, 1..7, 1..8, 1).
+tarefa(6, 26, 1..7, 1..8, 1).
 
 
-tarefa(7, 10, 1..7, 1..4, 1).
-tarefa(7, 17, 1..7, 1..4, 1).
-tarefa(7, 23, 1..7, 1..4, 1).
-tarefa(7, 27, 1..7, 1..4, 1).
+tarefa(7, 10, 1..7, 1..8, 1).
+tarefa(7, 17, 1..7, 1..8, 1).
+tarefa(7, 23, 1..7, 1..8, 1).
+tarefa(7, 27, 1..7, 1..8, 1).
 
 
-tarefa(8, 24, 1..7, 1..4, 1).
-tarefa(8, 28, 1..7, 1..4, 1).
-tarefa(8, 32, 1..7, 1..4, 1).
-tarefa(8, 36, 1..7, 1..4, 1).
+tarefa(8, 24, 1..7, 1..8, 1).
+tarefa(8, 28, 1..7, 1..8, 1).
+tarefa(8, 32, 1..7, 1..8, 1).
+tarefa(8, 36, 1..7, 1..8, 1).
 
 
-tarefa(9, 29, 1..7, 1..4, 1).
-tarefa(9, 33, 1..7, 1..4, 1).
-tarefa(9, 37, 1..7, 1..4, 1).
-tarefa(9, 41, 1..7, 1..4, 1).
+tarefa(9, 29, 1..7, 1..8, 1).
+tarefa(9, 33, 1..7, 1..8, 1).
+tarefa(9, 37, 1..7, 1..8, 1).
+tarefa(9, 41, 1..7, 1..8, 1).
 
 
-tarefa(10, 30, 1..7, 1..4, 1).
-tarefa(10, 34, 1..7, 1..4, 1).
-tarefa(10, 37, 1..7, 1..4, 1).
-tarefa(10, 42, 1..7, 1..4, 1).
+tarefa(10, 30, 1..7, 1..8, 1).
+tarefa(10, 34, 1..7, 1..8, 1).
+tarefa(10, 37, 1..7, 1..8, 1).
+tarefa(10, 42, 1..7, 1..8, 1).
 
 
-tarefa(11, 31, 1..7, 1..4, 1).
-tarefa(11, 35, 1..7, 1..4, 1).
-tarefa(11, 38, 1..7, 1..4, 1).
-tarefa(11, 43, 1..7, 1..4, 1).
+tarefa(11, 31, 1..7, 1..8, 1).
+tarefa(11, 35, 1..7, 1..8, 1).
+tarefa(11, 38, 1..7, 1..8, 1).
+tarefa(11, 43, 1..7, 1..8, 1).
 
 
-tarefa(12, 40, 1..7, 1..4, 1).
-tarefa(12, 44, 1..7, 1..4, 1).
-tarefa(12, 48, 1..7, 1..4, 1).
-tarefa(12, 53, 1..7, 1..4, 1).
+tarefa(12, 40, 1..7, 1..8, 1).
+tarefa(12, 44, 1..7, 1..8, 1).
+tarefa(12, 48, 1..7, 1..8, 1).
+tarefa(12, 53, 1..7, 1..8, 1).
 
 
-tarefa(13, 45, 1..7, 1..4, 1).
-tarefa(13, 49, 1..7, 1..4, 1).
-tarefa(13, 54, 1..7, 1..4, 1).
-tarefa(13, 59, 1..7, 1..4, 1).
+tarefa(13, 45, 1..7, 1..8, 1).
+tarefa(13, 49, 1..7, 1..8, 1).
+tarefa(13, 54, 1..7, 1..8, 1).
+tarefa(13, 59, 1..7, 1..8, 1).
 
 
-tarefa(14, 46, 1..7, 1..4, 1).
-tarefa(14, 50, 1..7, 1..4, 1).
-tarefa(14, 55, 1..7, 1..4, 1).
-tarefa(14, 60, 1..7, 1..4, 1).
+tarefa(14, 46, 1..7, 1..8, 1).
+tarefa(14, 50, 1..7, 1..8, 1).
+tarefa(14, 55, 1..7, 1..8, 1).
+tarefa(14, 60, 1..7, 1..8, 1).
 
 
-tarefa(15, 47, 1..7, 1..4, 1).
-tarefa(15, 52, 1..7, 1..4, 1).
-tarefa(15, 57, 1..7, 1..4, 1).
-tarefa(15, 62, 1..7, 1..4, 1).
+tarefa(15, 47, 1..7, 1..8, 1).
+tarefa(15, 52, 1..7, 1..8, 1).
+tarefa(15, 57, 1..7, 1..8, 1).
+tarefa(15, 62, 1..7, 1..8, 1).
 
 
-tarefa(16, 51, 1..7, 1..4, 1).
-tarefa(16, 56, 1..7, 1..4, 1).
-tarefa(16, 61, 1..7, 1..4, 1).
-tarefa(16, 66, 1..7, 1..4, 1).
+tarefa(16, 51, 1..7, 1..8, 1).
+tarefa(16, 56, 1..7, 1..8, 1).
+tarefa(16, 61, 1..7, 1..8, 1).
+tarefa(16, 66, 1..7, 1..8, 1).
 
 
-tarefa(17, 58, 1..7, 1..4, 1).
-tarefa(17, 63, 1..7, 1..4, 1).
-tarefa(17, 67, 1..7, 1..4, 1).
-tarefa(17, 71, 1..7, 1..4, 1).
+tarefa(17, 58, 1..7, 1..8, 1).
+tarefa(17, 63, 1..7, 1..8, 1).
+tarefa(17, 67, 1..7, 1..8, 1).
+tarefa(17, 71, 1..7, 1..8, 1).
 
 
-tarefa(18, 64, 1..7, 1..4, 1).
-tarefa(18, 68, 1..7, 1..4, 1).
-tarefa(18, 72, 1..7, 1..4, 1).
-tarefa(18, 75, 1..7, 1..4, 1).
+tarefa(18, 64, 1..7, 1..8, 1).
+tarefa(18, 68, 1..7, 1..8, 1).
+tarefa(18, 72, 1..7, 1..8, 1).
+tarefa(18, 75, 1..7, 1..8, 1).
 
 
-tarefa(19, 65, 1..7, 1..4, 1).
-tarefa(19, 69, 1..7, 1..4, 1).
-tarefa(19, 73, 1..7, 1..4, 1).
-tarefa(19, 76, 1..7, 1..4, 1).
+tarefa(19, 65, 1..7, 1..8, 1).
+tarefa(19, 69, 1..7, 1..8, 1).
+tarefa(19, 73, 1..7, 1..8, 1).
+tarefa(19, 76, 1..7, 1..8, 1).
 
 
-tarefa(20, 70, 1..7, 1..4, 1).
-tarefa(20, 74, 1..7, 1..4, 1).
-tarefa(20, 77, 1..7, 1..4, 1).
+tarefa(20, 70, 1..7, 1..8, 1).
+tarefa(20, 74, 1..7, 1..8, 1).
+tarefa(20, 77, 1..7, 1..8, 1).
+
+
+%AQUI COMEÇA A TABELA 2, LINHA 1
+
+
+
+tarefa(1, 1, 1..7, 1..8, 2).
+tarefa(1, 4, 1..7, 1..8, 2).
+tarefa(1, 7, 1..7, 1..8, 2).
+tarefa(1, 9, 1..7, 1..8, 2).
+
+
+tarefa(2, 2, 1..7, 1..8, 2).
+tarefa(2, 5, 1..7, 1..8, 2).
+tarefa(2, 8, 1..7, 1..8, 2).
+tarefa(2, 10, 1..7, 1..8, 2).
+
+
+tarefa(3, 3, 1..7, 1..8, 2).
+tarefa(3, 6, 1..7, 1..8, 2).
+
+
+tarefa(4, 11, 1..7, 1..8, 2).
+tarefa(4, 13, 1..7, 1..8, 2).
+tarefa(4, 15, 1..7, 1..8, 2).
+tarefa(4, 17, 1..7, 1..8, 2).
+
+
+tarefa(5, 12, 1..7, 1..8, 2).
+tarefa(5, 14, 1..7, 1..8, 2).
+tarefa(5, 16, 1..7, 1..8, 2).
+tarefa(5, 19, 1..7, 1..8, 2).
+
+
+tarefa(6, 18, 1..7, 1..8, 2).
+tarefa(6, 21, 1..7, 1..8, 2).
+tarefa(6, 24, 1..7, 1..8, 2).
+tarefa(6, 28, 1..7, 1..8, 2).
+
+
+tarefa(7, 20, 1..7, 1..8, 2).
+tarefa(7, 23, 1..7, 1..8, 2).
+tarefa(7, 26, 1..7, 1..8, 2).
+tarefa(7, 29, 1..7, 1..8, 2).
+
+
+tarefa(8, 22, 1..7, 1..8, 2).
+tarefa(8, 25, 1..7, 1..8, 2).
+
+
+tarefa(9, 27, 1..7, 1..8, 2).
+tarefa(9, 30, 1..7, 1..8, 2).
+
+
+
+tarefa(10, 31, 1..7, 1..8, 2).
+tarefa(10, 33, 1..7, 1..8, 2).
+tarefa(10, 35, 1..7, 1..8, 2).
+tarefa(10, 39, 1..7, 1..8, 2).
 
 
 
 
+tarefa(11, 32, 1..7, 1..8, 2).
+tarefa(11, 34, 1..7, 1..8, 2).
 
 
 
+tarefa(12, 36, 1..7, 1..8, 2).
+
+
+tarefa(13, 37, 1..7, 1..8, 2).
+
+
+
+tarefa(14, 38, 1..7, 1..8, 2).
+
+
+tarefa(15, 40, 1..7, 1..8, 2).
+
+
+tarefa(16, 41, 1..7, 1..8, 2).
 
 
 
