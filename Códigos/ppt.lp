@@ -114,20 +114,13 @@ primeiraTarefaDoDia(Motorista, Tarefa1, Dia, Semana, Tabela) :- motorista(Motori
 
 
 %Restrição 3.8: Garante que o motorista tenha um descanso mínimo entre jornadas seguidas. Coloquei o tempo como meia hora
-%:- alocacao(Motorista, Tarefa1, Dia, Semana, Tabela), alocacao(Motorista, Tarefa2, Dia, Semana, Tabela), tarefa(Tarefa1, _, Dia, Semana, Tabela), tarefa(Tarefa2, _, Dia, Semana, _), horaDeFimDaTarefa(Tarefa1, Fim), horaDeComecoDaTarefa(Tarefa2, Comeco), Tarefa1 != Tarefa2, Fim > (Comeco-30).
-
-
-%Fazer o dia depois?
-
-
-
 
 %Restrição 3.9: O motorista tem que ter um descanso mínimo entre duas tarefas em dias diferentes.
 %Coloquei como 8 horas, mas não sei se a tarefa tem que começar depois de 8 horas ou se com 8 horas depois já pode começar.
-%:- ultimaTarefaDoDia(Motorista, Tarefa1, Dia1, Semana), primeiraTarefaDoDia(Motorista, Tarefa2, Dia2, Semana), tarefa(Tarefa1, _, Dia1, Semana, _), tarefa(Tarefa2, _, Dia2, Semana, _), horaDeFimDaTarefa(Tarefa1, Fim), horaDeComecoDaTarefa(Tarefa2, Comeco), Dia2 - Dia1 == 1, N = Fim + 660, M = Comeco + 1440, N > M.
+:- ultimaTarefaDoDia(Motorista, Tarefa1, Dia1, Semana, _), primeiraTarefaDoDia(Motorista, Tarefa2, Dia2, Semana, _), tarefa(Tarefa1, _, Dia1, Semana, _), tarefa(Tarefa2, _, Dia2, Semana, _), horaDeFimDaTarefa(Tarefa1, Fim), horaDeComecoDaTarefa(Tarefa2, Comeco), Dia2 - Dia1 == 1, N = Fim + 660, M = Comeco + 1440, N > M.
 
 
-:- ultimaTarefaDoDia(Motorista, Tarefa1, Dia1, Semana1, _), primeiraTarefaDoDia(Motorista, Tarefa2, Dia2, Semana2, _), tarefa(Tarefa1, _, Dia1, Semana1, _), tarefa(Tarefa2, _, Dia2, Semana2, _), horaDeFimDaTarefa(Tarefa1, Fim), horaDeComecoDaTarefa(Tarefa2, Comeco), Dia2 == 1, Dia1 == 7, Semana2 - Semana1 = 1, N = Fim + 480, M = Comeco + 1440, N > M.
+:- ultimaTarefaDoDia(Motorista, Tarefa1, Dia1, Semana1, _), primeiraTarefaDoDia(Motorista, Tarefa2, Dia2, Semana2, _), tarefa(Tarefa1, _, Dia1, Semana1, _), tarefa(Tarefa2, _, Dia2, Semana2, _), horaDeFimDaTarefa(Tarefa1, Fim), horaDeComecoDaTarefa(Tarefa2, Comeco), Dia2 == 1, Dia1 == 7, Semana2 - Semana1 = 1, N = Fim + 660, M = Comeco + 1440, N > M.
 
 
 %alocacao(claudia, 5, 1, 1, 2).
@@ -142,8 +135,8 @@ tantoQueMotoristaTrabalhouNoDia(Motorista, Dia, Semana, N) :- alocacao(Motorista
 %COLOCAR MAIS MOTORISTAS
 
 
-:- tantoQueMotoristaTrabalhouNoDia(Motorista, Dia, Semana, N), N < 240.
-%:- tantoQueMotoristaTrabalhouNoDia(Motorista, Dia, Semana, N), N > 600.
+%:- tantoQueMotoristaTrabalhouNoDia(Motorista, Dia, Semana, N), N < 240.
+:- tantoQueMotoristaTrabalhouNoDia(Motorista, Dia, Semana, N), N > 600.
 %Essa dá errado, mas eu acho que é pq tem poucas tarefas.
 
 %alocacao(antonio, 1, 1, 1, 1).
@@ -162,7 +155,7 @@ tantoQueMotoristaTrabalhouNoDia(Motorista, Dia, Semana, N) :- alocacao(Motorista
 %trabalhouAMais(Motorista,Semana, Mais) :- HorasSemanais = #sum{Horas: alocacao(Motorista, Tarefa1, Dia, Semana, _), alocacao(Motorista, Tarefa2, Dia, Semana, _), primeiraTarefaDoDia(Motorista, Tarefa1, Dia, Semana), ultimaTarefaDoDia(Motorista, Tarefa2, Dia, Semana), horaDeComecoDaTarefa(Tarefa1, Comeco), horaDeFimDaTarefa(Tarefa2, Fim), Horas = Fim - Comeco}, HorasSemanais > 40, Mais = HorasSemanais - 40, motorista(Motorista), semana(Semana).
 
 
-trabalhouAMais(Motorista, Semana, Mais) :- motorista(Motorista), semana(Semana), HorasSemanais = #sum{Horas: tantoQueMotoristaTrabalhouNoDia(Motorista, Dia, Semana, Horas), dia(Dia)}, HorasSemanais > 2400, Mais = HorasSemanais - 2400.
+%trabalhouAMais(Motorista, Semana, Mais) :- motorista(Motorista), semana(Semana), HorasSemanais = #sum{Horas: tantoQueMotoristaTrabalhouNoDia(Motorista, Dia, Semana, Horas), dia(Dia)}, HorasSemanais > 2400, Mais = HorasSemanais - 2400.
 
 
 %trabalhouAMenos(Motorista,Semana, Menos) :- HorasSemanais = #sum{Horas: alocacao(Motorista, Tarefa1, Dia, Semana, _), alocacao(Motorista, Tarefa2, Dia, Semana, _), primeiraTarefaDoDia(Motorista, Tarefa1, Dia, Semana), ultimaTarefaDoDia(Motorista, Tarefa2, Dia, Semana), horaDeComecoDaTarefa(Tarefa1, Comeco), horaDeFimDaTarefa(Tarefa2, Fim), Horas = Fim - Comeco}, HorasSemanais < 40, Menos = 40 - HorasSemanais, motorista(Motorista), semana(Semana).
@@ -190,9 +183,9 @@ trabalhouAMais(Motorista, Semana, Mais) :- motorista(Motorista), semana(Semana),
 
 %:- alocacao(Motorista, _, 3..7, Semana1, _), alocacao(Motorista, _, 1, Semana2, _), alocacao(Motorista, _, 2, Semana2, _), Semana2 - Semana1 == 1.
 %:- alocacao(Motorista, _, 4..7, Semana1, _), alocacao(Motorista, _, 1..2, Semana2, _), alocacao(Motorista, _, 3, Semana2, _), Semana2 - Semana1 == 1.
-%:- alocacao(Motorista, _, 5..7, Semana1, _), alocacao(Motorista, _, 1..2, Semana2, _), alocacao(Motorista, _, 3, Semana2, _), Semana2 - Semana1 == 1.
-%:- alocacao(Motorista, _, 6..7, Semana1, _), alocacao(Motorista, _, 1..3, Semana2, _), alocacao(Motorista, _, 4, Semana2, _), Semana2 - Semana1 == 1.
-%:- alocacao(Motorista, _, 7, Semana1, _), alocacao(Motorista, _, 1..4, Semana2, _), alocacao(Motorista, _, 5, Semana2, _), Semana2 - Semana1 == 1.
+%:- alocacao(Motorista, _, 5..7, Semana1, _), alocacao(Motorista, _, 1..3, Semana2, _), alocacao(Motorista, _, 4, Semana2, _), Semana2 - Semana1 == 1.
+%:- alocacao(Motorista, _, 6..7, Semana1, _), alocacao(Motorista, _, 1..4, Semana2, _), alocacao(Motorista, _, 5, Semana2, _), Semana2 - Semana1 == 1.
+%:- alocacao(Motorista, _, 7, Semana1, _), alocacao(Motorista, _, 1..5, Semana2, _), alocacao(Motorista, _,6 , Semana2, _), Semana2 - Semana1 == 1.
 
 
 %Eu acho que essas últimas restrições já correspondem a restrição 3.16, que pelo o que eu entendi faz a "virada da semana".
@@ -201,6 +194,8 @@ trabalhouAMais(Motorista, Semana, Mais) :- motorista(Motorista), semana(Semana),
 %Restrição 3.17 e 3.18: Garante uma folga no domingo a cada período de tempo (preciso realmente dizer que é arbitrário?)
 %Quando eu criar mais semanas, eu volto pra essa.
 %:- alocacao(Motorista, _, _, Semana1, _), alocacao(Motorista, _, _, Semana2, _), alocacao(Motorista, _, _, Semana3, _), alocacao(Motorista, _, 1, Semana4, _), Semana2 - Semana1 == 1, Semana3 - Semana2 == 1, Semana4 - Semana3 == 1.
+
+%:- alocacao(Motorista, _, 1, X..Y, _), alocacao(Motorista, _, 1, Y+1, _), X = 1..6, Y = 1..7, Y - X = 6.
 
 
 %Restrição 3.19: Perguntar ao Paulo, pq o jeito que eu pensei usa as mesmas coisas das que eu não fiz acima.
